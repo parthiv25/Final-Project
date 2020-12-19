@@ -19,3 +19,10 @@ def view_stock():
     table = get_inventory()
     # return str(table)
     return render_template('view_stock.html', data=table)
+
+
+@app.route('/create_invoice')
+def create_invoice():
+    table = get_inventory()
+    # return str(table)
+    return render_template('create_invoice.html', data=table)
