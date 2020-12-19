@@ -6,6 +6,9 @@ from db import get_inventory, write_transcation
 
 from flask import request
 
+from db import get_inventory
+
+
 app = Flask(__name__)
 
 
@@ -22,6 +25,7 @@ def view_stock():
     return render_template('view_stock.html', data=table)
 
 
+
 @app.route('/add_transaction', methods=['POST'])
 def add_transaction():
 
@@ -33,3 +37,9 @@ def add_transaction():
 
     write_transcation(trans)
     return "okayyy"
+
+  @app.route('/create_invoice')
+def create_invoice():
+    table = get_inventory()
+    # return str(table)
+    return render_template('create_invoice.html', data=table)

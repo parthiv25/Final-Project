@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+        id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <h1> View Stock </h1>
+
+<body>
+
+    <div class="well">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Required</th>
+                    <!-- <th style="width: 36px;"></th> -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{row[0]}} </td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td><input
+                      autocomplete="off"
+                      autofocus
+                      class="form-control"
+                      name="imp1" 
+                      placeholder="Quantity Required"
+                      type="text"
+                    /></td>
+                </tr>
+
+              </div>
+              
+                {%endfor%}
+                <button type="button" class="btn btn-primary">Right Aligned Button</button>
+                
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
