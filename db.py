@@ -1,4 +1,6 @@
 import sqlite3
+import random
+import os
 
 
 def get_inventory():
@@ -24,8 +26,25 @@ def add_item(name, quantity):
     # print(cursor.fetchall())
     conn.commit()
     conn.close()
-    return
 
 
-# add_item("test3", 0)
-# get_inventory()
+def write_transcation(values):
+    for row in values:
+        conn = sqlite3.connect('inventory.db')
+
+        cursor = conn.execute(
+            f"UPDATE INVENTORY SET quantity = quantity - {row[1]} WHERE name='{row[0]}'")
+
+        conn.commit()
+        conn.close()
+
+    t_id = 0
+
+    while(True):
+        t_id = random.randrange(1000, 9999)
+        if not os.path.exists(f"transactions/{t_id}"):
+            break
+
+    with open(f"transactions/{t_id}", "w") as transaction:
+        transaction.write(str(values))
+    return t_id
