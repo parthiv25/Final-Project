@@ -13,7 +13,7 @@ def get_inventory():
     return table
 
 
-def add_item(name, quantity):
+def add_item_sql(name, quantity):
 
     conn = sqlite3.connect('inventory.db')
 
