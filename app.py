@@ -45,3 +45,10 @@ def create_invoice():
     # return str(table)
 
     return render_template('create_invoice.html', data=table)
+
+@app.route('/view_invoice')
+def view_invoice():
+    table = get_inventory()
+    # return str(table)
+
+    return render_template('view_invoice.html', data=table)
