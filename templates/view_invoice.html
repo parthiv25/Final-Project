@@ -1,34 +1,44 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>po-1</title>
-<link href="file:///C|/Users/PARTHIV/AppData/Roaming/Adobe/Dreamweaver 2020/en_US/Configuration/Temp/Assets/eamE974.tmp/css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+    id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <h1> View Invoice </h1>
+
+<body>
+
+  <div class="well">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <!-- <th style="width: 36px;"></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+          <td>{{row[0]}}</td>
+          <td>{{row[1]}}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
 </head>
 
 <body>
-<div class="card col-md-4">
-  <div class="card-header"> Name&nbsp; </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">1</li>
-    <li class="list-group-item">2</li>
-    <li class="list-group-item">3</li>
-  </ul>
-</div>
-	
-<div class="card col-md-4">
-  <div class="card-header"> Quantity&nbsp;&nbsp; </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Q - 1&nbsp;&nbsp;</li>
-    <li class="list-group-item">Q - 2&nbsp;</li>
-    <li class="list-group-item">Q - 3&nbsp;</li>
-  </ul>
-</div>
 
-<script src="file:///C|/Users/PARTHIV/AppData/Roaming/Adobe/Dreamweaver 2020/en_US/Configuration/Temp/Assets/eamE974.tmp/js/jquery-3.3.1.min.js"></script>
-<script src="file:///C|/Users/PARTHIV/AppData/Roaming/Adobe/Dreamweaver 2020/en_US/Configuration/Temp/Assets/eamE974.tmp/js/popper.min.js"></script>
-<script src="file:///C|/Users/PARTHIV/AppData/Roaming/Adobe/Dreamweaver 2020/en_US/Configuration/Temp/Assets/eamE974.tmp/js/bootstrap-4.3.1.js"></script>
 </body>
+
 </html>

@@ -8,6 +8,7 @@ from flask import request
 
 from db import add_item_sql
 
+import os
 
 app = Flask(__name__)
 
@@ -23,6 +24,16 @@ def view_stock():
     table = get_inventory()
     # return str(table)
     return render_template('view_stock.html', data=table)
+
+
+@app.route('/invoice/<int:invoice_id>')
+def view_invoice(invoice_id):
+    if(os.path.exists(f"transactions/{invoice_id}")):
+        tran = eval(open(f"transactions/{invoice_id}", "r").read())
+        return render_template('view_invoice.html', data=tran)
+
+    else:
+        return "Wrong transaction ID"
 
 
 @app.route('/add_item')
@@ -62,10 +73,3 @@ def create_invoice():
     # return str(table)
 
     return render_template('create_invoice.html', data=table)
-
-@app.route('/view_invoice')
-def view_invoice():
-    table = get_inventory()
-    # return str(table)
-
-    return render_template('view_invoice.html', data=table)
