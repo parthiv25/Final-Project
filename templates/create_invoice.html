@@ -24,7 +24,10 @@
                     <!-- <th style="width: 36px;"></th> -->
                 </tr>
             </thead>
+            
             <tbody>
+                <form action="/add_transaction" method="post">
+                
                 {% for row in data %}
                 <tr>
                     <td>{{row[0]}} </td>
@@ -34,17 +37,20 @@
                       autocomplete="off"
                       autofocus
                       class="form-control"
-                      name="imp1" 
+                      name="{{row[1]}}" 
+                      id="inp_{{row[1]}}" 
                       placeholder="Quantity Required"
                       type="text"
                     /></td>
                 </tr>
+                
 
               </div>
               
                 {%endfor%}
-                <button type="button" class="btn btn-primary">Right Aligned Button</button>
+                    <button id="submit">Submit</button>
                 
+                    </form>
             </tbody>
         </table>
     </div>

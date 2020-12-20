@@ -31,15 +31,17 @@ def add_transaction():
 
     data = request.form
     trans = []
-    # print(data.keys)
+    # print(request.__dict__)
+    # print(data)
     for row in data.keys():
-        trans.append(data[row].split(":"))
-
+        trans.append([row, int(data[row])])
+    print(trans)
     write_transcation(trans)
     return "okayyy"
 
-  @app.route('/create_invoice')
+@app.route('/create_invoice')
 def create_invoice():
     table = get_inventory()
     # return str(table)
+
     return render_template('create_invoice.html', data=table)
